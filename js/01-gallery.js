@@ -1,8 +1,6 @@
 import { galleryItems } from "./gallery-items.js";
 // Change code below this line
 
-// console.log(galleryItems);
-
 const gallery = document.querySelector(".gallery");
 
 const addItems = galleryItems
@@ -14,30 +12,23 @@ const addItems = galleryItems
 
 gallery.insertAdjacentHTML("afterbegin", addItems);
 
-// console.log(addItems);
-
 gallery.addEventListener("click", (event) => {
   event.preventDefault();
+  
+  if (event.target.classList.value === "gallery__image") {
+    const instance = basicLightbox.create(
+      `<img src="${event.target.dataset.source}">`
+    );
 
-  // const itemUrl = event.target.dataset.source;
-  // console.log(itemUrl);
+    instance.show();
 
-  // const instance = basicLightbox.create(`<img src="${itemUrl}">`);
-
-  const instance = basicLightbox.create(
-    `<img src="${event.target.dataset.source}">`
-  );
-
-  instance.show();
-  gallery.addEventListener("keyup", (event) => {
-    if (instance.visible() === true) {
-      const keyName = event.key;
-      if (keyName === "Escape") {
-        instance.close();
+    gallery.addEventListener("keyup", (event) => {
+      if (instance.visible() === true) {
+        const keyName = event.key;
+        if (keyName === "Escape") {
+          instance.close();
+        }
       }
-    //    else {
-    //     alert(`Press the "Escape" to close the window!`);
-    //   }
-    }
-  });
+    });
+  }
 });
