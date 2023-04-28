@@ -34,9 +34,10 @@ gallery.addEventListener("click", (event) => {
       const keyName = event.key;
       if (keyName === "Escape") {
         instance.close();
-      } else {
-        alert(`Press the "Escape" to close the window!`);
       }
+    //    else {
+    //     alert(`Press the "Escape" to close the window!`);
+    //   }
     }
   });
 });
