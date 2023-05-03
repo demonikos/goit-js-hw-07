@@ -16,7 +16,7 @@ gallery.insertAdjacentHTML("afterbegin", addItems);
 
 // console.log(addItems);
 
-var lightbox = new SimpleLightbox(".gallery li a", {
+let lightbox = new SimpleLightbox(".gallery li a", {
   captionsData: "alt",
   captionPosition: "bottom",
   captionDelay: 250,
